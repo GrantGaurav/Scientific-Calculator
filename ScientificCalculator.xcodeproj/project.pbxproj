@@ -14,6 +14,7 @@
 		7A1F7C6E2028110E00F9D809 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A1F7C6C2028110E00F9D809 /* LaunchScreen.storyboard */; };
 		7A1F7C792028110E00F9D809 /* ScientificCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1F7C782028110E00F9D809 /* ScientificCalculatorTests.swift */; };
 		7A1F7C842028110E00F9D809 /* ScientificCalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1F7C832028110E00F9D809 /* ScientificCalculatorUITests.swift */; };
+		7A6E647B20456E7300015672 /* HelpingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6E647A20456E7300015672 /* HelpingFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		7A1F7C7F2028110E00F9D809 /* ScientificCalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScientificCalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A1F7C832028110E00F9D809 /* ScientificCalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScientificCalculatorUITests.swift; sourceTree = "<group>"; };
 		7A1F7C852028110E00F9D809 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A6E647A20456E7300015672 /* HelpingFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpingFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				7A1F7C632028110E00F9D809 /* AppDelegate.swift */,
 				7A1F7C652028110E00F9D809 /* ViewController.swift */,
+				7A6E647A20456E7300015672 /* HelpingFunctions.swift */,
 				7A1F7C672028110E00F9D809 /* Main.storyboard */,
 				7A1F7C6A2028110E00F9D809 /* Assets.xcassets */,
 				7A1F7C6C2028110E00F9D809 /* LaunchScreen.storyboard */,
@@ -261,6 +264,7 @@
 			files = (
 				7A1F7C662028110E00F9D809 /* ViewController.swift in Sources */,
 				7A1F7C642028110E00F9D809 /* AppDelegate.swift in Sources */,
+				7A6E647B20456E7300015672 /* HelpingFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

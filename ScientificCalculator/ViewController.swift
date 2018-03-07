@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     var firstNumber:Double = 0
     var secondNumber: Double = 0
     var operation = ""
-    
+    var array = ["sin", "sinh", "cos", "cosh", "tan", "tanh", "inf", "nan"]
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -38,14 +38,13 @@ class ViewController: UIViewController {
             label.text = number!
             isTypingNumber = true
         }
-        
     }
     
     @IBAction func pressedOperation(_ sender: AnyObject) {
         isTypingNumber = false
         if label.text != "" {
-            if label.text != "sin" && label.text != "cos" && label.text != "tan" && label.text != "sinh" && label.text != "cosh" && label.text != "tanh" {
-            firstNumber = Double(label.text!)!
+            if(!array.contains(label.text!)) {
+                firstNumber = Double(label.text!)!
                 operation = sender.currentTitle!!
             }
             else {
@@ -59,7 +58,7 @@ class ViewController: UIViewController {
     @IBAction func pressedEqual(_ sender: AnyObject) {
         isTypingNumber = false
         var result: Double = 0
-        if label.text != "sin" && label.text != "cos" && label.text != "tan" && label.text != "sinh" && label.text != "cosh" && label.text != "tanh" && label.text != "" {
+        if(!array.contains(label.text!)) && label.text != ""{
         secondNumber = Double(label.text!)!
         if operation != "" {
         switch operation {
@@ -93,10 +92,9 @@ class ViewController: UIViewController {
         label.text = ""
     }
    
-    
     @IBAction func pressedSign (_ sender: AnyObject) {
         if label.text != "" {
-            if label.text != "sin" && label.text != "cos" && label.text != "tan" && label.text != "sinh" && label.text != "cosh" && label.text != "tanh" {
+            if(!array.contains(label.text!)) {
             label.text = String(Double(label.text!)! * -1)
             isTypingNumber = false
             }
@@ -107,10 +105,9 @@ class ViewController: UIViewController {
         }
     }
     
-    
     @IBAction func pressedPercentage (_ sender: AnyObject) {
         if label.text != "" {
-            if label.text != "sin" && label.text != "cos" && label.text != "tan" && label.text != "sinh" && label.text != "cosh" && label.text != "tanh" {
+            if(!array.contains(label.text!)) {
             label.text = String(Double(label.text!)! / 100)
             isTypingNumber = false
             }
@@ -121,25 +118,23 @@ class ViewController: UIViewController {
         }
     }
     
-    
     @IBAction func pressedDot (_ sender: AnyObject) {
-        if label.text != "sin" && label.text != "cos" && label.text != "tan" && label.text != "sinh" && label.text != "cosh" && label.text != "tanh" && label.text != "inf" && label.text != "nan"{
-            if (label.text?.contains("."))! == false{
+        if(!array.contains(label.text!)) {
+            if label.text?.characters.count == 0 {
             label.text = "0."
             isTypingNumber = true
         }
         else{
-            if label.text!.range(of: ".") == nil{
+            if label.text!.range(of: ".") == nil  {
                 label.text = label.text! + "."
             }
           }
         }
     }
     
-    
     @IBAction func  pressedInverse (_ sender: AnyObject) {
         if label.text != "" {
-            if label.text != "sin" && label.text != "cos" && label.text != "tan" && label.text != "sinh" && label.text != "cosh" && label.text != "tanh" {
+            if(!array.contains(label.text!)) {
             label.text = String(1 / Double(label.text!)!)
             isTypingNumber = false
             }
@@ -150,14 +145,11 @@ class ViewController: UIViewController {
         }
     }
     
-   
-    
     @IBAction func pressedTrigonometricOperation (_ sender: AnyObject) {
         operation = sender.currentTitle!!
         label.text = sender.currentTitle
         isTypingNumber = false
     }
-    
     
     @IBAction func inverseTrigonometricOperation (_ sender: AnyObject) {
         if sinButton.currentTitle == "sin" {
@@ -178,36 +170,28 @@ class ViewController: UIViewController {
         else {
             tanButton.setTitle("tan", for: .normal)
         }
-        
     }
     
     @IBAction func factorial(_ sender: AnyObject) {
         if label.text != "" {
-            if label.text != "sin" && label.text != "cos" && label.text != "tan" && label.text != "sinh" && label.text != "cosh" && label.text != "tanh" {
             var fact = Double(label.text!)!
-            var i: Double = 1, temp: Double = 1
+            var temp: Double = 1
+            if(!array.contains(label.text!)) {
             if fact > 171 || fact < -171{
                 label.text = "inf"
             }
             else if fact < 0 {
                 fact = fact * -1
-                while i <= fact {
-                    temp = temp * i
-                    i = i + 1
+                temp=ScientificCalculator.factorial(fact)
                 }
                 label.text = String(temp * -1)
             }
             else {
-                 while i <= fact {
-                  temp = temp * i
-                   i = i + 1
-                 }
+                temp=ScientificCalculator.factorial(fact)
                   label.text = String(temp)
             }
        }
             isTypingNumber = false
       }
-     }
-    
     
 }
